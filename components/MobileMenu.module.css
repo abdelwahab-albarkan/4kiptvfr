@@ -4,6 +4,7 @@
   z-index: 45;
   background: var(--bg);
   overflow-y: auto;
+  overscroll-behavior: contain;
   animation: fade 0.18s var(--ease) both;
 }
 @keyframes fade {
@@ -12,49 +13,101 @@
 }
 
 .panel {
-  padding: var(--space-5) var(--space-5) var(--space-8);
+  padding: var(--space-4) var(--space-5) var(--space-8);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
 }
 
-.link {
+/* Shared row (top-level links + category headers) */
+.row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 6px;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 4px;
   font-size: 1.1rem;
   font-weight: 650;
   letter-spacing: -0.01em;
   color: var(--text);
+  text-align: left;
+  background: none;
+  border: 0;
   border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: color 0.15s var(--ease);
+  -webkit-tap-highlight-color: transparent;
 }
-.linkActive { color: var(--accent); }
+.link { text-decoration: none; }
+.groupBtn { font: inherit; color: var(--text); }
+.row:hover { color: var(--accent); }
 
-.section {
-  display: contents;
+/* Active state — brand red, with a small leading marker on the row */
+.active { color: var(--accent); }
+.active::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  width: 3px;
+  height: 1.1em;
+  border-radius: 2px;
+  background: var(--accent);
 }
-.groupLabel {
-  margin-top: var(--space-6);
-  margin-bottom: var(--space-1);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
+.row.active,
+.sublink.active { position: relative; }
+
+.chevron {
+  color: var(--text-muted);
+  transition: transform 0.25s var(--ease), color 0.15s var(--ease);
+  flex-shrink: 0;
+}
+.chevronOpen { transform: rotate(180deg); color: var(--accent); }
+.groupBtn.active .chevron { color: var(--accent); }
+
+/* Collapsible sub-panel — the links are only rendered when the category is
+   open (so collapsed links stay out of the DOM and the tab order). A light
+   reveal animation plays on mount. */
+.subInner {
+  padding-bottom: 2px;
+  animation: subDown 0.22s var(--ease) both;
+}
+@keyframes subDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
 }
 
 .sublink {
-  padding: 12px 6px;
-  font-size: 1.02rem;
+  display: block;
+  position: relative;
+  padding: 12px 4px 12px 18px;
+  min-height: 44px;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text-secondary);
+  text-decoration: none;
   border-bottom: 1px solid var(--border);
+  transition: color 0.15s var(--ease);
 }
-.sublink.linkActive { color: var(--accent); font-weight: 600; }
+.sublink:last-child { border-bottom: 0; }
+.sublink:hover { color: var(--text); }
+.sublink.active { color: var(--accent); font-weight: 600; }
+.sublink.active::before { left: 4px; }
 
-.cta {
-  margin-top: var(--space-6);
+.cta { margin-top: var(--space-6); }
+
+/* Accessible focus ring for keyboard users */
+.row:focus-visible,
+.sublink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay { animation: none; }
+  .subInner { animation: none; }
+  .chevron { transition: color 0.15s var(--ease); }
 }
 
 @media (min-width: 1120px) {
