@@ -1,0 +1,218 @@
+/* ==========================================================================
+   TrustProof.module.css — Preuves & garanties section
+   Uses globals.css tokens exclusively. No new design system.
+   ========================================================================== */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── Signal grid ── */
+.grid {
+  /* inherits global .grid gap */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 0.2s var(--ease),
+    box-shadow 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+/* "Satisfait ou remboursé" card — subtly highlighted */
+.cardHighlight {
+  border-color: var(--accent-soft);
+  background: linear-gradient(
+    135deg,
+    var(--surface) 0%,
+    rgba(227, 38, 46, 0.04) 100%
+  );
+}
+
+.cardHighlight:hover {
+  border-color: rgba(227, 38, 46, 0.35);
+  box-shadow: 0 8px 28px rgba(227, 38, 46, 0.1);
+}
+
+/* Accent icon chip for the highlighted card */
+.chipAccent {
+  background: var(--accent-soft) !important;
+  color: var(--accent-hover) !important;
+  /* box-shadow adds a subtle glow on the shield */
+  box-shadow: 0 4px 12px rgba(227, 38, 46, 0.18);
+}
+
+.title {
+  margin-top: var(--space-4);
+  font-size: 1.05rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.desc {
+  margin-top: var(--space-3);
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Footer band: payment + contact ── */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+}
+
+@media (min-width: 860px) {
+  .footer {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-6) var(--space-8);
+  }
+}
+
+/* Column label */
+.colLabel {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* Payment column */
+.paymentCol {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+/* Vertical divider (desktop only) */
+.vDivider {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .vDivider {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+}
+
+/* Contact column */
+.contactCol {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+@media (min-width: 860px) {
+  .contactLinks {
+    align-items: flex-end;
+  }
+  .contactCol {
+    align-items: flex-end;
+  }
+}
+
+/* WhatsApp button */
+.waLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  background: #25d366;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.24);
+  transition:
+    background-color 0.16s var(--ease),
+    transform 0.14s var(--ease),
+    box-shadow 0.14s var(--ease);
+  white-space: nowrap;
+}
+
+.waLink:hover {
+  background: #1db954;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+}
+
+/* E-mail link */
+.mailLink {
+  font-size: 0.88rem;
+  font-weight: 550;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.15s var(--ease);
+}
+
+.mailLink:hover {
+  color: var(--accent-hover);
+}
+
+/* Responsive: stack contact links full-width on mobile */
+@media (max-width: 599px) {
+  .footer {
+    padding: var(--space-5);
+  }
+
+  .waLink {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mailLink {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contactLinks {
+    width: 100%;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover,
+  .waLink,
+  .waLink:hover {
+    transition: none;
+    transform: none;
+  }
+}

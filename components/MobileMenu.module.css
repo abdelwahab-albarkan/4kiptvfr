@@ -1,0 +1,62 @@
+.overlay {
+  position: fixed;
+  inset: var(--header-h) 0 0;
+  z-index: 45;
+  background: var(--bg);
+  overflow-y: auto;
+  animation: fade 0.18s var(--ease) both;
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.panel {
+  padding: var(--space-5) var(--space-5) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 6px;
+  font-size: 1.1rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+.linkActive { color: var(--accent); }
+
+.section {
+  display: contents;
+}
+.groupLabel {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-1);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sublink {
+  padding: 12px 6px;
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.sublink.linkActive { color: var(--accent); font-weight: 600; }
+
+.cta {
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 1120px) {
+  .overlay { display: none; }
+}

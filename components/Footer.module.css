@@ -1,0 +1,205 @@
+.footer {
+  --f-panel: #0f1117;
+  --f-panel-2: #0b0d11;
+  --f-border: rgba(255, 255, 255, 0.08);
+  --f-title: #ffffff;
+  --f-text: rgba(255, 255, 255, 0.62);
+  --f-muted: rgba(255, 255, 255, 0.4);
+  --f-accent: #ff3d57;
+
+  margin-top: auto;
+  background: var(--f-panel-2);
+  color: var(--f-text);
+  padding-block: clamp(2.5rem, 1.75rem + 3vw, 4rem);
+}
+
+/* --- Knowledge directory panel ----------------------------------------- */
+.panel {
+  background: var(--f-panel);
+  border: 1px solid var(--f-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 1rem + 2.5vw, 2.75rem);
+}
+.panelHead {
+  max-width: 720px;
+  margin-bottom: clamp(1.75rem, 1.25rem + 2vw, 2.75rem);
+}
+.dirEyebrow {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--f-muted);
+}
+.dirSub {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--f-text);
+}
+
+/* --- Column grid ------------------------------------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8) var(--space-6);
+}
+@media (min-width: 620px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1000px) {
+  .grid { grid-template-columns: repeat(5, 1fr); gap: var(--space-8) var(--space-5); }
+}
+
+.navCol { min-width: 0; }
+.colTitle {
+  display: flex;
+  align-items: center;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--f-title);
+  margin-bottom: var(--space-5);
+}
+.colTitle::before {
+  content: "";
+  width: 16px;
+  height: 2px;
+  margin-right: 10px;
+  border-radius: 2px;
+  background: var(--f-accent);
+  flex-shrink: 0;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list a {
+  display: inline-block;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: var(--f-text);
+  transition: color 0.15s var(--ease), transform 0.15s var(--ease);
+}
+.list a:hover {
+  color: #ffffff;
+  transform: translateX(2px);
+}
+.seeAll {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--f-accent);
+  transition: color 0.15s var(--ease), transform 0.15s var(--ease);
+}
+.seeAll:hover { color: #ff627a; transform: translateX(2px); }
+
+/* --- Brand / contact + payments ---------------------------------------- */
+.foot {
+  margin-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+@media (min-width: 900px) {
+  .foot {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-10);
+  }
+}
+.brandArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 420px;
+}
+.tagline {
+  margin-top: var(--space-3);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--f-muted);
+}
+.contact {
+  margin-top: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: var(--f-text);
+  transition: color 0.15s var(--ease);
+}
+.contact a:hover { color: #ffffff; }
+.contact a svg { color: var(--f-accent); flex-shrink: 0; }
+
+.socialArea {
+  flex-shrink: 0;
+}
+
+.payArea {
+  flex-shrink: 0;
+}
+.payLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--f-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* --- Legal bar --------------------------------------------------------- */
+.legal {
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--f-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+@media (min-width: 640px) {
+  .legal {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.copy {
+  font-size: 0.85rem;
+  color: var(--f-muted);
+}
+.legalRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.legalRow a {
+  font-size: 0.85rem;
+  color: var(--f-text);
+  transition: color 0.15s var(--ease);
+}
+.legalRow a:hover { color: #ffffff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .list a,
+  .list a:hover,
+  .seeAll,
+  .seeAll:hover {
+    transition: none;
+    transform: none;
+  }
+}

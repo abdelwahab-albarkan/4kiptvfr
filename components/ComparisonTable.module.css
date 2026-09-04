@@ -1,0 +1,278 @@
+.container {
+  width: 100%;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+/* --- Desktop & Tablet Table -------------------------------------------- */
+.tableWrapper {
+  display: block;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+@media (max-width: 639px) {
+  .tableWrapper {
+    display: none;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.96rem;
+  text-align: left;
+}
+
+.caption {
+  text-align: left;
+  padding: var(--space-3) var(--space-6);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+/* --- Table Header ------------------------------------------------------ */
+.table thead th {
+  padding: 20px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  vertical-align: bottom;
+}
+
+.headerFeature {
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  width: 38%;
+}
+
+.headerCol {
+  width: 31%;
+  position: relative;
+}
+
+.headerColInner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.colTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+.headerHighlighted {
+  background: linear-gradient(180deg, var(--accent-softer) 0%, var(--surface) 100%);
+  border-top: 3px solid var(--accent);
+}
+
+.brandPill {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.brandTitle {
+  font-size: 1.18rem;
+  font-weight: 850;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+/* --- Table Rows -------------------------------------------------------- */
+.row {
+  transition: background-color 0.15s var(--ease);
+}
+
+.row:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.row:not(:last-child) .rowLabelCell,
+.row:not(:last-child) .cell {
+  border-bottom: 1px solid var(--border);
+}
+
+.rowLabelCell {
+  padding: 16px 24px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.rowLabelText {
+  font-size: 0.98rem;
+  font-weight: 650;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.cell {
+  padding: 16px 24px;
+  color: var(--text-secondary);
+  vertical-align: middle;
+  line-height: 1.4;
+}
+
+.cellHighlighted {
+  background: rgba(227, 38, 46, 0.02);
+  color: var(--text);
+}
+
+.row:hover .cellHighlighted {
+  background: rgba(227, 38, 46, 0.04);
+}
+
+.highlightText {
+  color: var(--text);
+  font-weight: 750;
+  font-size: 0.98rem;
+}
+
+.standardText {
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+}
+
+/* --- Value Badges ------------------------------------------------------ */
+.positiveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+  font-size: 0.84rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.negativeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badgeSvg {
+  flex-shrink: 0;
+}
+
+/* --- Mobile Stacked Cards (< 640px) ------------------------------------ */
+.mobileCards {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .mobileCards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}
+
+.mobileCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.mobileCardHeader {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+.mobileCardLabel {
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.mobileCardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 380px) {
+  .mobileCardGrid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.mobileCompareItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+}
+
+.mobileCompareItemHighlighted {
+  background: var(--accent-softer);
+  border-color: rgba(227, 38, 46, 0.25);
+}
+
+.mobileColName {
+  font-size: 0.75rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mobileCompareItemHighlighted .mobileColName {
+  color: var(--accent-hover);
+}
+
+.mobileBrandDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.mobileCellValue {
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--text);
+  margin-top: 2px;
+}

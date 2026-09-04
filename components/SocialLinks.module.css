@@ -1,0 +1,105 @@
+.socialArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--f-muted, rgba(255, 255, 255, 0.4));
+  margin-bottom: var(--space-3, 0.75rem);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: inline-flex;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 11px;
+  border: 1px solid var(--f-border, rgba(255, 255, 255, 0.08));
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--f-text, rgba(255, 255, 255, 0.62));
+  transition:
+    background-color 0.16s var(--ease, ease),
+    border-color 0.16s var(--ease, ease),
+    color 0.16s var(--ease, ease),
+    transform 0.16s var(--ease, ease);
+  text-decoration: none;
+}
+
+.link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--f-accent, #ff3d57);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--f-accent, #ff3d57);
+  outline-offset: 2px;
+}
+
+/* Subtle platform-specific hover colors while maintaining brand consistency */
+.link[data-platform="whatsapp"]:hover {
+  color: #25d366;
+  border-color: rgba(37, 211, 102, 0.4);
+}
+
+.link[data-platform="telegram"]:hover {
+  color: #26a5e4;
+  border-color: rgba(38, 165, 228, 0.4);
+}
+
+.link[data-platform="youtube"]:hover {
+  color: #ff0000;
+  border-color: rgba(255, 0, 0, 0.4);
+}
+
+.link[data-platform="instagram"]:hover {
+  color: #e1306c;
+  border-color: rgba(225, 48, 108, 0.4);
+}
+
+.link[data-platform="facebook"]:hover {
+  color: #1877f2;
+  border-color: rgba(24, 119, 242, 0.4);
+}
+
+.icon {
+  flex-shrink: 0;
+  transition: transform 0.2s var(--ease, ease);
+}
+
+.link:hover .icon {
+  transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .link:hover,
+  .icon,
+  .link:hover .icon {
+    transition: none;
+    transform: none;
+  }
+}

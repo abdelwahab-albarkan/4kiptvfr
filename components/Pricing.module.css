@@ -1,0 +1,647 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* --- Connection Selector Tabs ---------------------------------------- */
+.tabContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.tabHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tabLabel {
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tabList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .tabList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.tabBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s var(--ease);
+  font-family: inherit;
+  color: var(--text);
+  box-shadow: var(--shadow-xs);
+}
+
+.tabBtn:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.tabBtnActive {
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 4px 16px rgba(227, 38, 46, 0.12);
+}
+
+.tabBtnPopular.tabBtnActive {
+  border-color: var(--accent);
+}
+
+.tabBtnMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.tabBtnTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.tabBtnActive .tabBtnTitle {
+  color: var(--accent);
+}
+
+.tabBtnSub {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.tabBadge {
+  position: absolute;
+  top: -9px;
+  right: 12px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 750;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* --- Tier Summary Bar ------------------------------------------------ */
+.tierSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.tierSummaryLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tierSummaryCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.tierSummaryTitle {
+  font-size: 1.08rem;
+  font-weight: 750;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.tierSummaryDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.tierGuideLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all 0.15s var(--ease);
+}
+
+.tierGuideLink:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .tierSummary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tierGuideLink {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --- Cards Grid ------------------------------------------------------ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  width: 100%;
+}
+
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cardWrap {
+  display: flex;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.popularCard {
+  border-color: rgba(227, 38, 46, 0.45);
+  background: linear-gradient(180deg, var(--surface) 0%, rgba(227, 38, 46, 0.02) 100%);
+  box-shadow: 0 6px 24px rgba(227, 38, 46, 0.1);
+}
+
+.popularCard:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 32px rgba(227, 38, 46, 0.16);
+}
+
+.ribbon {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 750;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px rgba(227, 38, 46, 0.3);
+  white-space: nowrap;
+}
+
+.ribbonIcon {
+  color: #ffffff;
+}
+
+.header {
+  margin-bottom: var(--space-4);
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.discountBadge {
+  display: inline-flex;
+  padding: 4px 10px;
+  background: var(--bg-soft);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 750;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+}
+
+.discountBadgePopular {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: rgba(227, 38, 46, 0.2);
+}
+
+/* --- Pricing Block ---------------------------------------------------- */
+.pricingBlock {
+  margin-bottom: var(--space-4);
+}
+
+.monthlyRate {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.priceNum {
+  font-size: 2.2rem;
+  font-weight: 850;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.popularCard .priceNum {
+  color: var(--accent);
+}
+
+.priceUnit {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.totalBilled {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+.badgeBilling {
+  font-size: 0.72rem;
+  font-weight: 650;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.cardDivider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-4) 0;
+}
+
+/* --- Slot Breakdown --------------------------------------------------- */
+.slotBreakdown {
+  margin-bottom: var(--space-2);
+}
+
+.slotBreakdownTitle {
+  font-size: 0.82rem;
+  font-weight: 750;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+
+.slotList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.slotItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.slotCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* --- Feature List ----------------------------------------------------- */
+.featureSection {
+  flex: 1 1 auto;
+  margin-bottom: var(--space-6);
+}
+
+.featureTitle {
+  font-size: 0.82rem;
+  font-weight: 750;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+.featureList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.checkIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkIconPopular {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* --- Action CTA ------------------------------------------------------- */
+.action {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 750;
+  transition: all 0.18s var(--ease);
+  text-align: center;
+}
+
+.ctaBtnStandard {
+  background: var(--bg-soft);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+
+.ctaBtnStandard:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.ctaBtnPopular {
+  background: var(--accent);
+  color: #ffffff;
+  border: 1px solid var(--accent);
+  box-shadow: 0 4px 16px rgba(227, 38, 46, 0.25);
+}
+
+.ctaBtnPopular:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: 0 6px 20px rgba(227, 38, 46, 0.35);
+}
+
+.ctaArrow {
+  transition: transform 0.15s var(--ease);
+}
+
+.ctaBtn:hover .ctaArrow {
+  transform: translateX(3px);
+}
+
+.guaranteeMicro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.guaranteeMicro svg {
+  color: var(--accent);
+}
+
+/* --- Trust Banner ----------------------------------------------------- */
+.trustBanner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xs);
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .trustBanner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.trustIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.trustTitle {
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: var(--text);
+}
+
+.trustDesc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+/* --- WhatsApp Row ----------------------------------------------------- */
+.waRow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.waBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #25d366;
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  transition: all 0.18s var(--ease);
+}
+
+.waBtn:hover {
+  background: #1eb956;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+/* --- Payment Row ------------------------------------------------------ */
+.paymentRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.paymentLabel {
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--text-secondary);
+}
+
+.customNote {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+}
+
+/* --- Reveal Animation ------------------------------------------------- */
+.reveal .cardWrap {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+.shown .cardWrap {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover,
+  .tabBtn,
+  .tabBtn:hover,
+  .ctaBtn,
+  .ctaBtn:hover,
+  .waBtn,
+  .waBtn:hover,
+  .reveal .cardWrap,
+  .shown .cardWrap {
+    transition: none !important;
+    transform: none !important;
+  }
+}

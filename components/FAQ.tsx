@@ -1,0 +1,24 @@
+import { FAQ_ITEMS } from "@/lib/site";
+import styles from "./FAQ.module.css";
+
+export default function FAQ({
+  items = FAQ_ITEMS,
+}: {
+  items?: { q: string; a: string }[];
+}) {
+  return (
+    <div className={styles.list}>
+      {items.map((item) => (
+        <details key={item.q} className={styles.item}>
+          <summary className={styles.summary}>
+            {item.q}
+            <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+            </svg>
+          </summary>
+          <p className={styles.answer}>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  );
+}

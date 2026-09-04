@@ -1,0 +1,255 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-bg);
+  backdrop-filter: saturate(160%) blur(16px);
+  -webkit-backdrop-filter: saturate(160%) blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+/* Tighten the logo↔actions gap on small phones so the burger never clips. */
+@media (max-width: 420px) {
+  .inner { gap: var(--space-3); }
+}
+
+/* --- Desktop nav ------------------------------------------------------- */
+.nav {
+  display: none;
+  align-items: center;
+  gap: 1px;
+}
+
+/* Shared base for links AND dropdown triggers — a full <button> reset so the
+   triggers never look like native form controls. */
+.link {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.975rem;
+  font-weight: 550;
+  letter-spacing: -0.005em;
+  line-height: 1;
+  color: var(--text-secondary);
+  padding: 9px 13px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.16s var(--ease), background-color 0.16s var(--ease);
+}
+.link:hover {
+  color: var(--text);
+  background: var(--bg-soft);
+}
+
+/* Active section — red text + a short underline indicator. */
+.linkActive,
+.linkActive:hover {
+  color: var(--accent);
+}
+.linkActive::after {
+  content: "";
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  bottom: 3px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+/* --- Grouped dropdowns (open on hover / keyboard focus) --------------- */
+.group {
+  position: relative;
+}
+.groupBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.group:hover > .groupBtn,
+.group:focus-within > .groupBtn {
+  color: var(--text);
+  background: var(--bg-soft);
+}
+.group:hover > .linkActive,
+.group:focus-within > .linkActive {
+  color: var(--accent);
+}
+.chevron {
+  flex-shrink: 0;
+  opacity: 0.55;
+  transform-origin: 50% 50%;
+  transition: transform 0.28s var(--ease), opacity 0.15s var(--ease);
+}
+.group:hover .chevron,
+.group:focus-within .chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Wrapper starts flush with the trigger (top:100%) and its transparent
+   padding-top bridges the visual gap, so moving the cursor to the panel
+   never drops the hover. */
+.menuWrap {
+  position: absolute;
+  top: 100%;
+  left: -8px;
+  padding-top: 11px;
+  z-index: 60;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease),
+    visibility 0.2s var(--ease);
+}
+.group:hover .menuWrap,
+.group:focus-within .menuWrap {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.menu {
+  min-width: 254px;
+  padding: 9px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow:
+    0 22px 48px -16px rgba(0, 0, 0, 0.6),
+    0 8px 18px -10px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  display: grid;
+  gap: 1px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 11px 12px 11px 14px;
+  border-radius: 11px;
+  font-size: 0.97rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: background-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.menuItem:hover {
+  background: var(--accent-softer);
+  color: var(--accent-hover);
+}
+.menuArrow {
+  flex-shrink: 0;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: opacity 0.15s var(--ease), transform 0.18s var(--ease);
+}
+.menuItem:hover .menuArrow { opacity: 1; transform: translateX(0); }
+.menuItemActive {
+  color: var(--accent);
+  font-weight: 600;
+}
+.menuItemActive .menuArrow { opacity: 1; transform: translateX(0); }
+
+/* --- Right cluster ----------------------------------------------------- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Header CTA — compact, proportionate, clearly the primary action. */
+.cta {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 11px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.97rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(227, 38, 46, 0.26);
+  transition: background-color 0.18s var(--ease), box-shadow 0.18s var(--ease),
+    transform 0.12s var(--ease);
+}
+.cta:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 9px 22px rgba(227, 38, 46, 0.32);
+}
+/* Pressed / active state — turns white with dark text (resets on release). */
+.cta:active,
+.ctaActive {
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transform: translateY(1px);
+}
+.ctaActive:hover {
+  background: #f2f2f2;
+  color: #111111;
+}
+.cta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* --- Hamburger --------------------------------------------------------- */
+.burger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s var(--ease);
+}
+.burger:hover { background: var(--bg-soft); }
+.burger span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transition: transform 0.22s var(--ease), opacity 0.22s var(--ease);
+}
+.burgerOpen span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burgerOpen span:nth-child(2) { opacity: 0; }
+.burgerOpen span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (min-width: 1120px) {
+  .nav { display: flex; }
+  .cta { display: inline-flex; }
+  .burger { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menuWrap,
+  .group:hover .menuWrap,
+  .group:focus-within .menuWrap { transition: none; transform: none; }
+  .chevron { transition: opacity 0.15s var(--ease); }
+  .menuArrow { transition: none; }
+}

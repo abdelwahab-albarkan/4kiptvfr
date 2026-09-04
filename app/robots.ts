@@ -1,10 +1,23 @@
-// TODO: Robots — to be implemented with crawl rules
 import type { MetadataRoute } from "next";
+import { SITE } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
-  // TODO: Configure rules, sitemap URL, and host
   return {
-    rules: [],
-    sitemap: "",
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: [
+          "/mentions-legales",
+          "/conditions-utilisation",
+          "/politique-confidentialite",
+          "/cgv",
+          "/cookies",
+          "/remboursement",
+        ],
+      },
+    ],
+    sitemap: `${SITE.domain}/sitemap.xml`,
+    host: SITE.domain,
   };
 }

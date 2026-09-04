@@ -1,0 +1,59 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Fluid grid: 1 col on phones, 2 on tablets, 3 on desktop — no media queries.
+   min(100%, 320px) keeps a single full-width column below ~320px so cards
+   never exceed the viewport. */
+.grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  min-width: 0;
+}
+.item > * {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.note {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  max-width: 46ch;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--accent);
+  transition: gap 0.15s var(--ease);
+}
+.cta:hover {
+  gap: 12px;
+  color: var(--accent-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .cta:hover {
+    transition: none;
+  }
+}

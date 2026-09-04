@@ -1,0 +1,286 @@
+/* ==========================================================================
+   Testimonials.module.css — Avis clients section
+   Inherits all design tokens from globals.css. No new design system.
+   ========================================================================== */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* ── Verified reviews grid ── */
+.grid {
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition:
+    border-color 0.2s var(--ease),
+    box-shadow 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+/* Opening quote mark */
+.card::before {
+  content: "\201C";
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-5);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--accent-soft);
+  font-weight: 900;
+  pointer-events: none;
+  user-select: none;
+}
+
+.blockquote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  flex: 1;
+  margin: 0;
+}
+
+.quote {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  font-style: italic;
+  flex: 1;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-4);
+}
+
+.author {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.context {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* ── Honest empty state ── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-5);
+  padding: var(--space-10) var(--space-6);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.emptyIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+}
+
+.emptyTitle {
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.emptyText {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 52ch;
+  margin: 0;
+}
+
+/* ── Genuine support CTA panel ── */
+.ctaPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+}
+
+@media (min-width: 860px) {
+  .ctaPanel {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-10);
+  }
+}
+
+.ctaLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.ctaChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.ctaTitle {
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.ctaText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 52ch;
+  margin: 0;
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+@media (min-width: 860px) {
+  .ctaActions {
+    align-items: flex-end;
+  }
+}
+
+/* WhatsApp button */
+.waBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: var(--radius-md);
+  background: #25d366;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.26);
+  transition:
+    background-color 0.16s var(--ease),
+    transform 0.14s var(--ease),
+    box-shadow 0.14s var(--ease);
+  white-space: nowrap;
+}
+
+.waBtn:hover {
+  background: #1db954;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.32);
+}
+
+/* E-mail link */
+.mailBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.15s var(--ease);
+}
+
+.mailBtn svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color 0.15s var(--ease);
+}
+
+.mailBtn:hover {
+  color: var(--accent-hover);
+}
+
+.mailBtn:hover svg {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 599px) {
+  .ctaPanel {
+    padding: var(--space-6);
+  }
+
+  .emptyState {
+    padding: var(--space-8) var(--space-5);
+  }
+
+  .waBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mailBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover,
+  .waBtn,
+  .waBtn:hover {
+    transition: none;
+    transform: none;
+  }
+}
