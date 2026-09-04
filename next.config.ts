@@ -9,6 +9,22 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Canonical host: force https://www.4kiptvfr.com. The apex and the
+      // Vercel preview host redirect to www so there is a single canonical URL
+      // and 4kiptvfr.vercel.app is never treated as canonical. (host `value`
+      // is anchored, so www.4kiptvfr.com itself does not match — no loop.)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "4kiptvfr.com" }],
+        destination: "https://www.4kiptvfr.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "4kiptvfr.vercel.app" }],
+        destination: "https://www.4kiptvfr.com/:path*",
+        permanent: true,
+      },
       // /technique/* renamed to /formats/*
       { source: "/technique", destination: "/formats", permanent: true },
       { source: "/technique/:path*", destination: "/formats/:path*", permanent: true },
