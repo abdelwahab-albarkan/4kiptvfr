@@ -24,7 +24,7 @@ const path = require('path');
 const HOST = process.env.INDEXNOW_HOST || '4kiptvfr.com';
 const SITE_URL = process.env.INDEXNOW_SITE_URL || `https://${HOST}`;
 const SITEMAP_URL = process.env.INDEXNOW_SITEMAP_URL || `${SITE_URL}/sitemap.xml`;
-const INDEXNOW_KEY = process.env.INDEXNOW_KEY || '6e5c8d29852bee18955e6bae8613f2bd';
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY || '831e355e10d3272add583acaa423cbda';
 const KEY_LOCATION = `${SITE_URL}/${INDEXNOW_KEY}.txt`;
 const BATCH_SIZE = 1000; // IndexNow allows up to 10,000 URLs per request
 

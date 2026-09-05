@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Conditions générales d'utilisation (CGU)",
   description:
-    "Conditions générales d'utilisation d'IPTVExpert.fr : accès au service, usage responsable, comptes, propriété intellectuelle et responsabilité.",
+    "Conditions générales d'utilisation de 4kiptvfr.com : accès au service, usage responsable, comptes, propriété intellectuelle et responsabilité.",
   path: "/conditions-utilisation",
   noindex: true,
 });

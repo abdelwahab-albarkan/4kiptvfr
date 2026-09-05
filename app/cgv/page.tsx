@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Conditions générales de vente (CGV)",
   description:
-    "Conditions générales de vente d'IPTVExpert.fr : offre, commande, prix, paiement, activation, rétractation, garanties et support.",
+    "Conditions générales de vente de 4kiptvfr.com : offre, commande, prix, paiement, activation, rétractation, garanties et support.",
   path: "/cgv",
   noindex: true,
 });

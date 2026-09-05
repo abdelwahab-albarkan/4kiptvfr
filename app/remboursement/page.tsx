@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Rétractation et remboursement",
   description:
-    "Politique de rétractation et de remboursement d'IPTVExpert.fr : droit de rétractation, exception pour les contenus numériques et garantie satisfait ou remboursé.",
+    "Politique de rétractation et de remboursement de 4kiptvfr.com : droit de rétractation, exception pour les contenus numériques et garantie satisfait ou remboursé.",
   path: "/remboursement",
   noindex: true,
 });

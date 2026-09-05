@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Politique de confidentialité",
   description:
-    "Politique de confidentialité d'IPTVExpert.fr : données réellement traitées, finalités, base légale, durées, sous-traitants et vos droits (RGPD).",
+    "Politique de confidentialité de 4kiptvfr.com : données réellement traitées, finalités, base légale, durées, sous-traitants et vos droits (RGPD).",
   path: "/politique-confidentialite",
   noindex: true,
 });

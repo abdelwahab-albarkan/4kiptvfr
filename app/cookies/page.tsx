@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Politique relative aux cookies",
   description:
-    "Politique cookies d'IPTVExpert.fr : le site ne dépose aucun cookie et n'utilise aucun traceur. Détail du stockage local utilisé et de vos options.",
+    "Politique cookies de 4kiptvfr.com : le site ne dépose aucun cookie et n'utilise aucun traceur. Détail du stockage local utilisé et de vos options.",
   path: "/cookies",
   noindex: true,
 });

@@ -11,7 +11,7 @@ export const metadata = buildMetadata({
   description:
     "Découvrez 4kiptvfr.com : notre mission, nos valeurs et notre engagement pour une IPTV premium, stable et transparente en France.",
   path: "/a-propos",
-  keywords: ["iptv france a propos", "francestreamtv", "qui sommes nous iptv"],
+  keywords: ["iptv france a propos", "4kiptvfr", "qui sommes nous iptv"],
 });
 
 const VALUES = [

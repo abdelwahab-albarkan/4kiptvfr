@@ -1,4 +1,4 @@
-# FranceStreamTV — Image Map (internal)
+# 4kiptvfr.com — Image Map (internal)
 
 Inventory of `public/images/` (~90 files, 46 MB). Not linked publicly.
 "Used" = wired into a page via `next/image` with descriptive alt + width/height.

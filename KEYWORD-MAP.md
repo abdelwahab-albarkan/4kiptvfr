@@ -1,4 +1,4 @@
-# FranceStreamTV — Master Keyword → URL Map (internal)
+# 4kiptvfr.com — Master Keyword → URL Map (internal)
 
 Built from 4 sources: `dataipfrance.txt` + 3 × `iptv_broad-match_fr` CSVs.
 Not linked from the site. Reference for content/SEO decisions.

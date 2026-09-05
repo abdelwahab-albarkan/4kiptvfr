@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Mentions légales",
   description:
-    "Mentions légales du site IPTVExpert.fr : éditeur, directeur de la publication, hébergeur et informations légales obligatoires.",
+    "Mentions légales du site 4kiptvfr.com : éditeur, directeur de la publication, hébergeur et informations légales obligatoires.",
   path: "/mentions-legales",
   noindex: true,
 });

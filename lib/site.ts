@@ -17,7 +17,7 @@ export type SocialLinksConfig = Record<SocialPlatform, string>;
 
 export const SITE = {
   name: "4kiptvfr.com",
-  domain: "https://www.4kiptvfr.com",
+  domain: "https://4kiptvfr.com",
   locale: "fr-FR",
   supportEmail: "support@streamb4.com",
   // WhatsApp — international format (Morocco). Local 0625218443 → 212625218443.
