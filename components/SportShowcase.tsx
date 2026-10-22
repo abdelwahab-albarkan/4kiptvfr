@@ -17,14 +17,15 @@ type Sport = {
 
 /* Data-driven — one card component mapped over the six competitions.
    Uses the real competition assets already in /public/images/.
-   Links point only to existing pages: football competitions → the football
-   page; the others → the sport hub (where those disciplines live). */
+   Each card links to its dedicated competition page when one exists, so the
+   homepage passes authority straight to the detailed guides; the remaining
+   disciplines point to the sport hub. */
 const SPORTS: Sport[] = [
-  { name: "Ligue 1", tag: "Football", href: "/contenu/sport/football", image: "/images/Logo_Ligue_1_2024.svg.webp" },
-  { name: "Champions League", tag: "Football", href: "/contenu/sport/football", image: "/images/UEFA_Champions_League_logo.png" },
-  { name: "Formule 1", tag: "Sport auto", href: "/contenu/sport", image: "/images/Formula_1_Logo_1.png" },
+  { name: "Ligue 1", tag: "Football", href: "/contenu/sport/ligue-1", image: "/images/Logo_Ligue_1_2024.svg.webp" },
+  { name: "Champions League", tag: "Football", href: "/contenu/sport/champions-league", image: "/images/UEFA_Champions_League_logo.png" },
+  { name: "Formule 1", tag: "Sport auto", href: "/contenu/sport/formule-1", image: "/images/Formula_1_Logo_1.png" },
   { name: "Roland-Garros", tag: "Tennis", href: "/contenu/sport", image: "/images/Roland-Garros_idhlvZUj6c_0.png" },
-  { name: "Top 14", tag: "Rugby", href: "/contenu/sport", image: "/images/Top_14.svg.webp" },
+  { name: "Top 14", tag: "Rugby", href: "/contenu/sport/top-14", image: "/images/Top_14.svg.webp" },
   { name: "NBA", tag: "Basketball", href: "/contenu/sport", image: "/images/NBA_Logo.svg.webp" },
 ];
 

@@ -115,12 +115,28 @@ export default async function SportEntryPage({ params }: { params: Promise<{ slu
       <Section narrow>
         <div className="prose">
           <h2>Regarder {e.name} sans coupure</h2>
-          <p>
-            Pour un direct fluide lors des grands rendez-vous, privilégiez une connexion filaire (Ethernet) et un lecteur
-            réactif comme <Link href="/applications/tivimate" className="link">TiviMate</Link> ou{" "}
-            <Link href="/applications/smarters" className="link">IPTV Smarters</Link>. En cas de ralentissement, consultez nos
-            conseils sur le <Link href="/problemes/buffering-coupure" className="link">buffering et la stabilité</Link>.
-          </p>
+          {e.watchTips && e.watchTips.length > 0 ? (
+            <>
+              <ul>
+                {e.watchTips.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ul>
+              <p>
+                Côté application, <Link href="/applications/tivimate" className="link">TiviMate</Link> et{" "}
+                <Link href="/applications/smarters" className="link">IPTV Smarters</Link> offrent le direct le plus réactif ;
+                en cas de ralentissement, voir nos conseils sur le{" "}
+                <Link href="/problemes/buffering-coupure" className="link">buffering et la stabilité</Link>.
+              </p>
+            </>
+          ) : (
+            <p>
+              Pour un direct fluide lors des grands rendez-vous, privilégiez une connexion filaire (Ethernet) et un lecteur
+              réactif comme <Link href="/applications/tivimate" className="link">TiviMate</Link> ou{" "}
+              <Link href="/applications/smarters" className="link">IPTV Smarters</Link>. En cas de ralentissement, consultez nos
+              conseils sur le <Link href="/problemes/buffering-coupure" className="link">buffering et la stabilité</Link>.
+            </p>
+          )}
         </div>
       </Section>
 

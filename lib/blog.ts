@@ -860,6 +860,9 @@ export const POSTS: Post[] = [
       { label: "Tout le sport en direct", href: "/contenu/sport" },
       { label: "Regarder la Ligue 1", href: "/contenu/sport/ligue-1" },
       { label: "Regarder la Champions League", href: "/contenu/sport/champions-league" },
+      { label: "Regarder la Premier League", href: "/contenu/sport/premier-league" },
+      { label: "Regarder la Formule 1", href: "/contenu/sport/formule-1" },
+      { label: "Regarder le Top 14", href: "/contenu/sport/top-14" },
       { label: "Chaînes de sport (beIN, Canal+…)", href: "/contenu/sport/bein-sports" },
     ],
     body: [

@@ -18,23 +18,39 @@ import DeviceGrid from "@/components/DeviceGrid";
 import SportShowcase from "@/components/SportShowcase";
 import MediaSection from "@/components/tmdb/MediaSection";
 import JsonLd from "@/components/JsonLd";
-import { buildMetadata, organizationSchema, websiteSchema, faqSchema } from "@/lib/seo";
-import { PRIMARY_CTA, CLUSTERS, FAQ_ITEMS } from "@/lib/site";
+import { buildMetadata, organizationSchema, websiteSchema, faqSchema, subscriptionOffersSchema } from "@/lib/seo";
+import { PRIMARY_CTA, CLUSTERS, FAQ_ITEMS, PRICING_PLANS } from "@/lib/site";
 import { DEVICE_LIST } from "@/lib/devices";
 import { APP_LIST } from "@/lib/applications";
 
 export const metadata = buildMetadata({
-  title: "IPTV France : abonnement premium 4K, 50 000+ chaînes",
+  title: "Meilleur IPTV France 2026 : Abonnement 4K Stable & Anti-Coupure",
   description:
-    "4kiptvfr.com, le service IPTV pensé pour la France : une offre premium avec 50 000+ chaînes en direct, sport, 180 000+ films et séries en 4K. Service fiable, compatible tous appareils, activation en 60 s, sans engagement.",
+    "Abonnement IPTV n°1 en France : 50 000+ chaînes HD/4K, tout le sport en direct et VOD illimitée. Sans engagement, test 24h & activation en 60s sur WhatsApp.",
   path: "/",
-  keywords: ["iptv france", "abonnement iptv france", "offre iptv", "service iptv", "iptv france 4k", "iptv france premium", "site iptv"],
+  keywords: [
+    "meilleur iptv france",
+    "iptv france",
+    "abonnement iptv",
+    "iptv france 4k",
+    "iptv anti coupure",
+    "iptv smarters pro",
+    "test iptv gratuit",
+    "iptv france premium",
+  ],
 });
 
 export default function HomePage() {
   return (
     <>
-      <JsonLd data={[organizationSchema(), websiteSchema(), faqSchema(FAQ_ITEMS)]} />
+      <JsonLd
+        data={[
+          organizationSchema(),
+          websiteSchema(),
+          subscriptionOffersSchema(PRICING_PLANS),
+          faqSchema(FAQ_ITEMS),
+        ]}
+      />
 
       {/* Cinematic brand hero + entertainment rows (TMDB, falls back gracefully) */}
       <MediaSection />

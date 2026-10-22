@@ -18,6 +18,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${SITE.domain}/sitemap.xml`,
-    host: SITE.domain,
+    host: SITE.name,
   };
 }

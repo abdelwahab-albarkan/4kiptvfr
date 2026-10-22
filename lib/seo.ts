@@ -24,8 +24,7 @@ export function buildMetadata(spec: {
     description: spec.description,
     keywords: spec.keywords,
     alternates: {
-      canonical: spec.path,
-      languages: getHreflangAlternates(spec.path),
+      canonical: url,
     },
     robots: spec.noindex ? { index: false, follow: true } : undefined,
     openGraph: {
